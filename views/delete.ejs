@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete a Toy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            background-color: #1d8eff;
+            color: white;
+            margin: 0;
+            padding: 20px 0;
+        }
+
+        .confirmation-container {
+            max-width: 500px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .confirmation-container p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #e74c3c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+
+        button:hover {
+            background-color: #c0392b;
+        }
+
+        .cancel-link {
+            display: inline-block;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: bold;
+            margin: 10px 5px;
+        }
+
+        .cancel-link:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Delete Toy</h1>
+    <div class="confirmation-container">
+        <p>Are you sure you want to delete the toy: <strong><%= toy.name %></strong> <strong><%= toy.category  %></strong>?</p>
+        <p><strong>Description: <%= toy.description %></strong></p>
+        <form action="/toys/<%= toy.id %>?_method=DELETE" method="POST">
+            <button type="submit">Confirm Delete</button>
+            <a href="/toys" class="cancel-link">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
